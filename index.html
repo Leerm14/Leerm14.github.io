@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="background">
+      <div class="container">
+        <div class="Header">
+          <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+          </div>
+          <div class="search-box">
+            <img src="img/211817_search_strong_icon.png" alt="icon" />
+            <input type="text" placeholder="Tìm kiếm..." />
+          </div>
+          <div class="log" id="logBtn">
+            <img
+              src="img/circle-user-solid.svg"
+              alt="log"
+            />
+            <div class="logout-menu" id="logoutMenu" style="display:none;">
+              <button id="logoutBtn">Log out</button>
+            </div>
+          </div>
+        </div>
+        <div class="Date">
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Mon</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Tue</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Wed</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Thu</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Fri</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Sat</div>
+          <div class="day-number"></div>
+        </div>
+        <div class="day-button" onclick="changedatecss(this)">
+          <div class="day-label">Sun</div>
+          <div class="day-number"></div>
+        </div>
+      </div>
+      <div class="MyTask">
+        <div class="note">
+          <p>Note</p>
+          <textarea id="inputText" rows="15" cols="36"></textarea>
+        </div>
+        <div class="title">My Tasks</div>
+        <div class="tasklist">
+          <ul>
+          </ul>
+        </div>
+        <div class="Addtasklist">
+          <form>
+          <p>Title</p>
+          <input type="text" name="Title" id="title" required/>
+           <p>Date</p>
+            <input type="date" name="taskDate" id="date" required/>
+          <p>Time</p>
+          <div class="time-inputs">
+            <div class="From">
+              <p>From:</p>
+            <input type="time" name="startTime" id="from" required/>
+            </div>
+            <div class="To">
+              <p>To:</p>
+            <input type="time" name="endTime" id="to" required/>
+            </div>
+          </div>
+          <button type="button" class="submit" onclick="add()">Add</button>
+        </div>
+        <div class="Addbutton" onclick="backgroundaddtask()">+</div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="js/task.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="js/scriptcss.js"></script>
+    <script>
+      const logBtn = document.getElementById('logBtn');
+      const logoutMenu = document.getElementById('logoutMenu');
+      logBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', function() {
+        logoutMenu.style.display = 'none';
+      });
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        alert('Đã đăng xuất!');
+      });
+    </script>
+  </body>
+</html>
